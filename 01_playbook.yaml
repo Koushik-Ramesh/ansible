@@ -8,3 +8,14 @@
     - name: Printing hi from task2 of play1
       ansible.builtin.debug:
         msg: "Long time no see from task1 of play1"
+
+- name: play2
+  hosts: all
+  tasks: 
+    - name: Printing hi from task1 of play2
+      ansible.builtin.debug:
+        msg: "Hi from task1 of play2"
+
+    - name: Printing hi from task2 of play2
+      ansible.builtin.debug:
+        msg: "I am Back from task1 of play2"
