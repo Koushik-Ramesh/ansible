@@ -7,5 +7,5 @@
 
   - name: Printing the mac address 
     ansible.builtin.debug:
-      msg: Mac address of the node is {{ansible_default_ipv4}}    
+      msg: Mac address of the node is {{ansible_default_ipv4.macaddress}}    
    
