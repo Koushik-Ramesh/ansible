@@ -12,9 +12,17 @@
         msg: Value of link is {{URL}}
       vars:
         URL: task.google.com
+    
+     name: Demo on using local variable
+      ansible.builtin.debug:
+        msg: Value of cliurl is {{URL}}
+      vars:
+        URL: cliurl.google.com
 
 # Variable precedence:
 # local variable > global variable
+# If we try to print a variable without declaring it, it will throw a error
+
 
 
 
