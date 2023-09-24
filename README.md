@@ -32,3 +32,7 @@ YAML is indendation specific.
 * Playbook : A Playbook is a list of plays ( and that's why it always starts with - )
 * Play     : A Play is a list of tasks.
 * Task     : A Task is nothing but an action that we wish to perform
+
+# NOTE: If you would like to print a variable, then enclose the variable in "{{varname}}" and there is no single quote concept 
+# If the variable is present in between the string of words, there is no need to enclose in quotes.
+# No two tasks of a play should have same name
