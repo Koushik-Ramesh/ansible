@@ -16,8 +16,6 @@
      name: Demo on using local variable
       ansible.builtin.debug:
         msg: Value of cliurl is {{URL}}
-      vars:
-        URL: cliurl.google.com
 
 # Variable precedence:
 # local variable > global variable
