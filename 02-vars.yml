@@ -2,6 +2,8 @@
   hosts: all
   vars:                 # Global variable: All the tasks of this play can access this variable
     URL: play.google.com 
+  vars_files:
+    - dev.yml
   vars_prompt:
     - name: YourName
       prompt: Enter your name
@@ -17,10 +19,12 @@
       vars:
         URL: task.google.com
     
-    - name: Printing prompt variable
+#    - name: Printing prompt variable
+#     ansible.builtin.debug:
+#        msg: Name of the person is {{YourName}}
+    - name: This is env specific
       ansible.builtin.debug:
-        msg: Name of the person is {{YourName}}
-    
+        msg: Type of instance to be used {{INS_TYPE}}
 
 # Variable precedence:
 # command line variales > local variable > global variable
