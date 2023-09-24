@@ -31,3 +31,6 @@
     ansible.builtin.debug:
       msg: Starting DB
     tags: DB
+
+# Tags are basically a keyword given to a task, if we want to execute only the frontend process we use frontend tag or only the backend process then backend tag
+# $ansible-playbook -i inv -e ansible_user=centos -e ansible_password=DevOps321 07-tags.yml -t DB | command used with tags
