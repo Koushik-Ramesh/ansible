@@ -1,8 +1,8 @@
 - name: Demo on installing packages
   hosts: all
+  become: yes
   tasks:
   - name: Installing the nginx
     ansible.builtin.package:
       name: nginx
       status: present
-      
