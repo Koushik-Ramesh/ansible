@@ -1,4 +1,4 @@
-name: Demo on vars usage
+- name: Demo on vars usage
   hosts: all
   vars:                 # Global variable: All the tasks of this play can access this variable
     URL: play.google.com 
