@@ -4,12 +4,15 @@
   - name: Running uptime command
     ansible.builtin.shell: uptime
     register: OUT
+
   - name: Printing the uptime
     ansible.builtin.debug: 
       msg: "{{OUT.stdout}}"
+
   - name: Declaring the variable
-    set_fact:
+    set_fact:                 # Predefined keyword 
       EXITCODE: "{{OUT.rc}}"
+
   - name: Printing the uptime exit code
     ansible.builtin.debug: 
       msg: uptime exit code is {{EXITCODE}}  
