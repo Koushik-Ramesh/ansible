@@ -36,3 +36,7 @@ YAML is indendation specific.
 # NOTE: If you would like to print a variable, then enclose the variable in "{{varname}}" and there is no single quote concept 
 # If the variable is present in between the string of words, there is no need to enclose in quotes.
 # No two tasks of a play should have same name
+
+# What is a fact?
+In ansible, fact is the property of the node mentioned in the inventory file, by default, ansible is going to gather all the facts of the amchines mentioned in the inventory file
+$ ansible -i inv all -e ansible_user=centos -e ansible_password=abc@123 -m setup
