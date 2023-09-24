@@ -2,6 +2,9 @@
   hosts: all
   vars:                 # Global variable: All the tasks of this play can access this variable
     URL: play.google.com 
+  vars_prompt:
+    - name: YourName
+      prompt: Enter your name
   tasks: 
     - name: Printing hi from task1 of play1
       ansible.builtin.debug:
@@ -13,9 +16,13 @@
       vars:
         URL: task.google.com
     
+    - name: Printing prompt variable
+      ansible.builtin.debug:
+        msg: Name of the person is {{YourName}}
+    
 
 # Variable precedence:
-# local variable > global variable
+# command line variales > local variable > global variable
 # If we try to print a variable without declaring it, it will throw a error
 
 
