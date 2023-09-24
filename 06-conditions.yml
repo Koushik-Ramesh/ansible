@@ -1,5 +1,5 @@
 - name: Demo on Conditions
-  hosts: All
+  hosts: all
   vars:
     action: true
   tasks:
