@@ -7,9 +7,14 @@
       ansible.builtin.debug:
         msg: Value of url is {{URL}}
     
-    - name: Printing hi from task1 of play1
+    - name: Demo on using local variable
       ansible.builtin.debug:
         msg: Value of link is {{URL}}
+      vars:
+        URL: task.google.com
+
+# Variable precedence:
+# local variable > global variable
 
 
 
