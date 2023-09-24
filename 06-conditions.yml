@@ -1,5 +1,7 @@
 - name: Demo on Conditions
-  hosts: all
+  hosts: All
+  vars:
+    action: true
   tasks:
     - name: Run this only when the distribution is centos
       ansible.builtin.debug:
@@ -10,3 +12,8 @@
       ansible.builtin.debug:
         msg: Welcome to Ubuntu {{ansible_distribution}}
       when: ansible_distribution == "Ubuntu"
+    
+    - name: Run this action
+      ansible.builtin.debug:
+        msg: Action is true
+      when: action
