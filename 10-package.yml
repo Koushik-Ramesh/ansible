@@ -5,14 +5,14 @@
   - name: Removing nginx
     ansible.builtin.package:
       name: nginx
-      state: absent
+      state: present
   
   - name: Installing httpd
     ansible.builtin.package:
       name: httpd
-      state: absent
+      state: present
 
   - name: Installing jq
     ansible.builtin.package:
       name: jq
-      state: absent
+      state: present
