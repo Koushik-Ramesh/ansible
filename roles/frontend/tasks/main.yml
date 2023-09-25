@@ -1,0 +1,24 @@
+- name: Installing Nginx
+  ansible.builtin.package:
+     name: nginx
+     state: present
+
+- name: Downloading the file
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Performing cleanup
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Copying the frontend
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes           #This ensure your source file is not in remote server/location
+
+
+
