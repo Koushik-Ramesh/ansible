@@ -9,7 +9,10 @@
   
   - name: Installing httpd
     ansible.builtin.package:
-      name: 
-        - httpd
-        - jq
+      name: httpd
+      state: present
+
+  - name: Installing httpd
+    ansible.builtin.package:
+      name: jq
       state: present
