@@ -27,7 +27,7 @@
 
 - name: Starting Nginx
   systemd:
-    name: Nginx
+    name: nginx
     state: restarted
     enabled: yes
     daemon_reload: yes
