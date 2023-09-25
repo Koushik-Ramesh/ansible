@@ -3,6 +3,6 @@
   become: yes
   tasks:
   - name: Copying the file
-    ansible.builtin.package:
+    ansible.builtin.copy:
       src: systemd.service
       dest: /home/centos/systemd.service
