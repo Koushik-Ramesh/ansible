@@ -2,11 +2,11 @@
   hosts: all
   become: yes
   tasks:
-  - name: Removing packages
+  - name: Installing packages
     ansible.builtin.package:
       name: 
         - nginx
         - httpd
         - jq
-      state: absent
+      state: present
   
