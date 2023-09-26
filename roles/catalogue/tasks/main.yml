@@ -31,8 +31,8 @@
     group: "{{APPUSER}}"
     remote_src: yes 
 
-- name: Generatig artifacts with npm Install
-  comunity.general.npm:
+- name: Generating artifacts with npm Install
+  community.general.npm:
     path: /home/{{APPUSER}}/{{Component}}/
 
 - name: Copying the systemd file
@@ -46,6 +46,6 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
-    
+
 - name: Configuring Service name
   ansible.builtin.shell: set-hostname {{Component}}-{{ENV}}
