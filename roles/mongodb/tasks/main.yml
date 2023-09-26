@@ -1,0 +1,16 @@
+- name: Copying the {{Component}} repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+    remote_src: yes    
+
+- name: Installing {{Component}}}
+  ansible.builtin.package:
+     name: mongodb-org
+     state: present
+
+- name: Starting {{Component}}
+  systemd:
+    name: mongod
+    state: restarted
+    enabled: yes
