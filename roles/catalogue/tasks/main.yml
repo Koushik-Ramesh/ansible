@@ -8,12 +8,12 @@
 
 - name: Creating {{APPUSER}}
   ansible.builtin.user:
-    name: {{APPUSER}}
+    name: "{{APPUSER}}"
     comment: Roboshop app user
 
 - name: Downloading & Extracting the file
   ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/catalogue/archive/main.zip
+    src: https://github.com/stans-robot-project/{{Component}}/archive/main.zip
     dest: /tmp
     remote_src: yes  
 

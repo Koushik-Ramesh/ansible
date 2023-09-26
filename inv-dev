@@ -4,5 +4,6 @@ frontend-dev.robosop.internal
 [mongodb]
 mongodb-dev.robosop.internal
 
-
+[catalogue]
+catalogue-dev.robosop.internal
 
