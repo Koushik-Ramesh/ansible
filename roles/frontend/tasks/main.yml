@@ -3,7 +3,7 @@
      name: nginx
      state: present
 
-- name: Downloading the file
+- name: Downloading & Extracting the file
   ansible.builtin.unarchive:
     src: https://github.com/stans-robot-project/frontend/archive/main.zip
     dest: /tmp
