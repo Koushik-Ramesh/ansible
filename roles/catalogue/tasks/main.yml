@@ -3,7 +3,7 @@
 
 - name: Installing Nodejs
   ansible.builtin.package:
-     name: Nodejs
+     name: nodejs
      state: present
 
 - name: Creating {{APPUSER}}
