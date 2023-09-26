@@ -27,4 +27,9 @@
   ansible.builtin.copy:
     src: /tmp/{{Component}}-main/
     dest: /home/{{APPUSER}}/{{Component}}
+    owner: "{{APPUSER}}"
+    group: "{{APPUSER}}"
     remote_src: yes 
+
+- name: Configuring Service name
+  ansible.builtin.shell: set-hostname {{Component}}-{{ENV}}
