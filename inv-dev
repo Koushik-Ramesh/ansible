@@ -7,3 +7,5 @@ mongodb-dev.robosop.internal
 [catalogue]
 catalogue-dev.robosop.internal
 
+[redis]
+redis-dev.robosop.internal
