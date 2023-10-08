@@ -13,3 +13,5 @@ redis-dev.robosop.internal
 [user]
 user-dev.robosop.internal
 
+[cart]
+cart-dev.robosop.internal
