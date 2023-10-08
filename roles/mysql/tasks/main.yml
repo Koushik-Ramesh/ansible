@@ -1,4 +1,4 @@
-- name: Copying the {{Component}} repo
+- name: Configuring the {{Component}} repo
   ansible.builtin.copy:
     src: "{{Component}}.repo"
     dest: /etc/yum.repos.d/{{Component}}.repo    
@@ -18,7 +18,6 @@
   ansible.builtin.slurp:
     src: /var/log/mysqld.log
   register: pwd_log
-
 
 - name: Configuring Name
   ansible.builtin.include_role:
