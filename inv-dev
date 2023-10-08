@@ -15,3 +15,6 @@ user-dev.robosop.internal
 
 [cart]
 cart-dev.robosop.internal
+
+[mysql]
+mysql-dev.robosop.internal
