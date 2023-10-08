@@ -6,46 +6,22 @@
      name: nodejs
      state: present
 
-- name: Creating {{APPUSER}}
-  ansible.builtin.user:
-    name: "{{APPUSER}}"
-    comment: Roboshop app user
+- name: Creating APPUSER
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
 
-- name: Downloading & Extracting the file
-  ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/{{Component}}/archive/main.zip
-    dest: /tmp
-    remote_src: yes  
-
-- name: Performing {{Component}} cleanup
-  ansible.builtin.file:
-    path: /home/{{APPUSER}}/{{Component}}
-    state: absent
-  ignore_errors: yes
-
-- name: Copying the file to {{APPUSER}} home directory
-  ansible.builtin.copy:
-    src: /tmp/{{Component}}-main/
-    dest: /home/{{APPUSER}}/{{Component}}
-    owner: "{{APPUSER}}"
-    group: "{{APPUSER}}"
-    remote_src: yes 
+- name: Downloading and Extracting the file
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_extract
 
 - name: Generating artifacts with npm Install
   community.general.npm:
     path: /home/{{APPUSER}}/{{Component}}/
 
-- name: Copying the systemd file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/{{Component}}.service
-    
-- name: Starting {{Component}}
-  systemd:
-    name: "{{Component}}"
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+- name: Configuring the {{Component}} Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc
 
-- name: Configuring Service name
-  ansible.builtin.shell: set-hostname {{Component}}-{{ENV}}
