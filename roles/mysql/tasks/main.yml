@@ -14,12 +14,6 @@
     state: restarted
     enabled: yes
 
-- name: Downloading & Extracting {{Component}}
-  ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/{{Component}}/archive/main.zip
-    dest: /tmp
-    remote_src: yes
-
 - name: Fetches the log file from the remote node
   ansible.builtin.slurp:
     src: /var/log/mysqld.log
