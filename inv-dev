@@ -9,3 +9,7 @@ catalogue-dev.robosop.internal
 
 [redis]
 redis-dev.robosop.internal
+
+[user]
+user-dev.robosop.internal
+
