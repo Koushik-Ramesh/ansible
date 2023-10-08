@@ -20,5 +20,7 @@
     state: restarted
     enabled: yes
 
-- name: Configuring Service name
-  ansible.builtin.shell: set-hostname {{Component}}-{{ENV}}
+- name: Configuring Name
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set_name
