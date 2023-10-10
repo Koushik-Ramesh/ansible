@@ -21,9 +21,9 @@
   block:
     - name: Fetching MYSQL version
       community.mysql.mysql_info:
-        login_user: root
-        login_password: RoboShop@1
-        filter: version
+          login_user: root
+          login_password: RoboShop@1
+          filter: version
   rescue:
 # The below tasks must execute only if the password is not changed
     - name: Fetches the log file from the remote node
