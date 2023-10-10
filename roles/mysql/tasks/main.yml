@@ -33,9 +33,9 @@
 
     - name: Extracting the root password
       ansible.builtin.set_fact: 
-        DEFAULT_PASSWORD: "{{ pwd_log['content'] | b64decode | regex_findall('.*temporary password.*') | join(' ') | split(' ') | last }}"
+          DEFAULT_PASSWORD: "{{ pwd_log['content'] | b64decode | regex_findall('.*temporary password.*') | join(' ') | split(' ') | last }}"
 
-    - name: Resetting Default root password of "{{Component}}"
+    - name: Resetting Default root password of {{Component}}
       ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{ROOT_PASSWORD}}';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}""
 
     - name: Removing the {{Component}} password plugins
