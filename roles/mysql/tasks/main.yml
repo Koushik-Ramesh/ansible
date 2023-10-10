@@ -14,11 +14,6 @@
     state: restarted
     enabled: yes
 
-- name: Fetches the log file from the remote node
-  ansible.builtin.slurp:
-    src: /var/log/mysqld.log
-  register: pwd_log
-
 # Block and rescue wil work together
 # If any of the block task fails then rescue task will execute
 
@@ -31,12 +26,16 @@
         filter: version
   rescue:
 # The below tasks must execute only if the password is not changed
+  - name: Fetches the log file from the remote node
+  ansible.builtin.slurp:
+    src: /var/log/mysqld.log
+  register: pwd_log
   - name: Extracting the root password
     ansible.builtin.set_fact: 
       DEFAULT_PASSWORD: "{{ pwd_log['content'] | b64decode | regex_findall('.*temporary password.*') | join(' ') | split(' ') | last }}"
 
   - name: Resetting Default root password of {{Component}}
-    ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{ROOT_PASSWORD}}'" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD}}
+    ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{ROOT_PASSWORD}}';" | mysql --connect-expired-password -uroot -p{{DEFAULT_PASSWORD}}
 
   - name: Removing the {{Component}} password plugins
     ansible.builtin.shell: echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 
