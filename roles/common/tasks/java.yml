@@ -1,0 +1,32 @@
+- name: Configuring Nodejs
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+- name: Installing Maven on {{Component}}-{{ENV}} Server
+  ansible.builtin.package:
+     name: maven
+     state: present
+
+- name: Creating APPUSER
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
+
+- name: Downloading and Extracting the file
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_extract
+
+- name: Generating artifacts with npm Install
+  community.general.shell: mvn clean package && mv target/{{Component}}-1.0.jar {{Component}}.jar
+  args:
+    chdir: /home/{{APPUSER}}/{{Component}}
+
+- name: Configuring the {{Component}} Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc
+
+- name: Configuring Name
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set_name
