@@ -28,6 +28,11 @@
     regexp: '^gid'
     line: gid = {{USERINFO.group}}
 
+- name: Installing APP Dependencies
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{Component}}/requirements.txt
+    executable: pip3
+    
 - name: Configuring the {{Component}} Service
   ansible.builtin.include_role:
     name: common

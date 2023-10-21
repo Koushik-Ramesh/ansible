@@ -8,10 +8,6 @@
   ansible.builtin.debug:
     msg: Value of the OUT is {{USERINFO}}
 
-- name: Installing APP Dependencies
-  ansible.builtin.pip:
-    requirements: /home/{{APPUSER}}/{{Component}}/requirements.txt
-    executable: pip3
-    
+
 
  
