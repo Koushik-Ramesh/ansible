@@ -43,13 +43,14 @@
 
     - name: Removing the {{Component}} password plugins
       ansible.builtin.shell: echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1 
+      ignore_errors: yes
 
 - name: Download and Extracting {{Component}}
   ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/mysql/archive/main.zip
-    dest: /tmp/mysql-main/shipping.sql
+    src: https://github.com/stans-robot-project/{{Component}}/archive/main.zip
+    dest: /tmp
     remote_src: yes
-    
+
 - name: Injecting the schema
   community.mysql.mysql_db:
     state: import
