@@ -2,3 +2,16 @@
   ansible.builtin.user:
     name: "{{APPUSER}}"
     comment: Roboshop app user
+  register: USERINFO
+
+- name: Printing the variable
+  ansible.builtin.debug:
+    msg: Value of the OUT is {{USERINFO}}
+
+- name: Installing APP Dependencies
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{Component}}/requirements.txt
+    executable: pip3
+    
+
+ 
