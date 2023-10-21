@@ -21,3 +21,6 @@ mysql-dev.robosop.internal
 
 [shipping]
 shipping-dev.robosop.internal
+
+[rabbitmq]
+rabbitmq-dev.robosop.internal
