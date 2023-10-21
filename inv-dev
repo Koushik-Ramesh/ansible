@@ -18,3 +18,6 @@ cart-dev.robosop.internal
 
 [mysql]
 mysql-dev.robosop.internal
+
+[shipping]
+shipping-dev.robosop.internal
