@@ -34,4 +34,7 @@
     - users
     - catalogue
 
+- name: Printing the variable
+  ansible.builtin.debug:
+    msg: I am a variable {{DB}}
 
