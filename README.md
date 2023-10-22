@@ -39,4 +39,21 @@ YAML is indendation specific.
 
 # What is a fact?
 In ansible, fact is the property of the node mentioned in the inventory file, by default, ansible is going to gather all the facts of the amchines mentioned in the inventory file
-$ ansible -i inv all -e ansible_user=centos -e ansible_password=abc@123 -m setup
+    $ ansible -i inv all -e ansible_user=centos -e ansible_password=abc@123 -m setup
+
+
+# When to use ansible pull vs ansible push ?
+1. When infrastructure is static, then we will host an ANSIBLE server and will target configuration management on all the nodes from your ansible server
+2. When your infrastructure is not static, which means on cloud we often scale out and down the infra, in this case, maintaining the inventory is quite challenging
+and to avoid this we do a part called BOOTSTRAPPING and let ansible pull command to run
+
+# Points to be noted when using Ansible-pull:
+    * Ensuring nodes running ansible has ansible installed
+    * Pull only works from GIT
+
+# How to use ansible-pull
+   $ ansible-pull -U https://github.com/Koushik-Ramesh/ansible.git -e ENV=dev -e Component=mongodb roboshop-pull.yml
+
+# Role Dependencies: 
+    Ansible terms, a dependency is any role that needs to have run before the current role runs
+
