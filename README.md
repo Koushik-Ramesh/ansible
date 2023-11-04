@@ -57,3 +57,5 @@ and to avoid this we do a part called BOOTSTRAPPING and let ansible pull command
 # Role Dependencies: 
     Ansible terms, a dependency is any role that needs to have run before the current role runs
 
+# What is handler and why it is used?
+    

@@ -18,12 +18,13 @@
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
-    remote_src: yes           #This ensure your source file is not in remote server/location
+    remote_src: yes           # This ensure your source file is not in remote server/location
 
 - name: Copying the proxy file
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+  notify: Restarting Nginx      # Whenever there is a change in proxy file, then this notifies handler task and will call the restart function
 
 - name: Starting Nginx
   systemd:
