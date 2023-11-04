@@ -21,19 +21,20 @@ pipeline {
             steps {
                 sh '''
                     env
+                    ansible-playbook robo-dryrun.yml -e ENV=dev -e Component=mongodb -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW}
                 '''
             }
         }
-       stage('Main Branch') {
-            when { branch 'main' }
-            steps {
-                sh '''
-                    env
-                    echo name of the branch job running against is ${BRANCH_NAME}
-                '''
-            }
-        }
+      // stage('Main Branch') {
+        //    when { branch 'main' }
+          //  steps {
+            //    sh '''
+              //      env
+                //    echo name of the branch job running against is ${BRANCH_NAME}
+                //'''
+        //    }
+       // }
    }
 }
 
-//  ansible-playbook robo-dryrun.yml -e ENV=dev -e Component=mongodb -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW}
+//  
