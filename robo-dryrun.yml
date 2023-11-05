@@ -3,7 +3,6 @@
 - name: Creating EC2 for DryRun
   hosts: localhost
   gather_facts: False
-  become: yes
   vars:
     instance_type: "t2.micro"
     security_group_id: "sg-0ca0742615a57b999"  # Update as per your security group id
@@ -42,6 +41,7 @@
 - name: Run Role to Test
   hosts: launched
   become: True
+  become: yes
   gather_facts: Yes
   tasks:
     - name: set the facts per host
