@@ -2,6 +2,7 @@
 # Ensure you create an AMI from a server that has ANSIBLE Installed 
 - name: Creating EC2 for DryRun
   hosts: localhost
+  become: yes
   gather_facts: False
   vars:
     instance_type: "t2.micro"
