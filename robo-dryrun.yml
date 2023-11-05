@@ -40,11 +40,10 @@
 
 - name: Run Role to Test
   hosts: launched
-  become: True
+  become: yes
   gather_facts: Yes
   tasks:
     - name: set the facts per host
-      become: yes
       set_fact:
         INSTANCE_ID: "{{hostvars['localhost']['INSTANCE_ID']}}"
     - name: Import the role and Terminate the instance
