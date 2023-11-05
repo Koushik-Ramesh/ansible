@@ -41,8 +41,8 @@
 - name: Run Role to Test
   hosts: launched
   become: True
-  become: Yes
   gather_facts: Yes
+  become: Yes
   tasks:
     - name: set the facts per host
       set_fact:
