@@ -5,7 +5,7 @@ pipeline {
         SSH_CRED = credentials('SSH_CRED')
     }
    // parameters {
-    //    string(name: 'COMPONENT', defaultValue: 'mongodb', description: 'Enter the Component Name')
+    //    string(name: 'COMPONENT', defaultValue: 'mongodb', description: 'Enter the COMPONENT Name')
     //    choice(name: 'CHOICE', choices: ['dev', 'prod'], description: 'Choose the Environment'))
    // }
    stages {
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh '''
                     env
-                    ansible-playbook robo-dryrun.yml -e ENV=dev -e Component=mongodb -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW}
+                    ansible-playbook robo-dryrun.yml -e ENV=dev -e COMPONENT=mongodb -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW}
                 '''
             }
         }

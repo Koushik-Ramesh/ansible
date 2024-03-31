@@ -1,20 +1,20 @@
-- name: Copying the {{Component}} repo
+- name: Copying the {{COMPONENT}} repo
   ansible.builtin.copy:
     src: redis.repo
-    dest: /etc/yum.repos.d/{{Component}}.repo    
+    dest: /etc/yum.repos.d/{{COMPONENT}}.repo    
 
-- name: Installing {{Component}}}
+- name: Installing {{COMPONENT}}}
   ansible.builtin.package:
      name: redis-6.2.13
      state: present
 
-- name: Configuring the {{Component}} visibility
+- name: Configuring the {{COMPONENT}} visibility
   ansible.builtin.replace:
     path: /etc/redis.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Starting {{Component}}
+- name: Starting {{COMPONENT}}
   systemd:
     name: redis
     state: restarted

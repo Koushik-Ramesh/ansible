@@ -16,24 +16,24 @@
     name: common
     tasks_from: download_extract
 
-- name: Updating the UID of {{Component}}.ini file
+- name: Updating the UID of {{COMPONENT}}.ini file
   ansible.builtin.lineinfile:
-    path: /home/{{APPUSER}}/{{Component}}/{{Component}}.ini
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^uid'
     line: uid = {{USERINFO.group}}
 
-- name: Updating the GID of {{Component}}.ini file
+- name: Updating the GID of {{COMPONENT}}.ini file
   ansible.builtin.lineinfile:
-    path: /home/{{APPUSER}}/{{Component}}/{{Component}}.ini
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
     line: gid = {{USERINFO.group}}
 
 - name: Installing APP Dependencies
   ansible.builtin.pip:
-    requirements: /home/{{APPUSER}}/{{Component}}/requirements.txt
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
     
-- name: Configuring the {{Component}} Service
+- name: Configuring the {{COMPONENT}} Service
   ansible.builtin.include_role:
     name: common
     tasks_from: config_svc

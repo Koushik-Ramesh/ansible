@@ -1,4 +1,4 @@
-- name: Installing Maven on {{Component}}-{{ENV}} Server
+- name: Installing Maven on {{COMPONENT}}-{{ENV}} Server
   ansible.builtin.package:
      name: maven
      state: present
@@ -14,11 +14,11 @@
     tasks_from: download_extract
 
 - name: Generating artifacts with npm Install
-  ansible.builtin.shell: mvn clean package && mv target/{{Component}}-1.0.jar {{Component}}.jar
+  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
   args:
-    chdir: /home/{{APPUSER}}/{{Component}}
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}
 
-- name: Configuring the {{Component}} Service
+- name: Configuring the {{COMPONENT}} Service
   ansible.builtin.include_role:
     name: common
     tasks_from: config_svc
