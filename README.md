@@ -57,5 +57,8 @@ and to avoid this we do a part called BOOTSTRAPPING and let ansible pull command
 # Role Dependencies: 
     Ansible terms, a dependency is any role that needs to have run before the current role runs
 
-# What is handler and why it is used?
+# What is lazy and (&&) and lazy OR (||) ?
+During two statements, 
+(i) lazy AND (&&) will execute both the statements if both are true, or it executes whichever statements are true
+(ii) Lazy OR (||) will execute the first statement if first is true or it will execute second statement only when first is false
     
