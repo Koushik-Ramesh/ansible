@@ -8,15 +8,20 @@
     name: common
     tasks_from: create_user
 
-- name: Downloading and Extracting the file
+# - name: Downloading and Extracting the file
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_extract
+
+# - name: Generating artifacts with npm Install
+#   ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+#   args:
+#     chdir: /home/{{APPUSER}}/{{COMPONENT}}
+
+- name: Downloading and Extracting the {{COMPONENT}} from Nexus
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_extract
-
-- name: Generating artifacts with npm Install
-  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
-  args:
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}
+    tasks_from: download_from_nexus
 
 - name: Configuring the {{COMPONENT}} Service
   ansible.builtin.include_role:
