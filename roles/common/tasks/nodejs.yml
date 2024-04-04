@@ -11,6 +11,12 @@
     name: common
     tasks_from: create_user
 
+- name: Downloading .pem file
+  ansible.builtin.get_url:
+    url: wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+    dest: /home/{{APPUSER}}/global-bundle.pem
+  become_user: "{{APPUSER}}"
+  
 # Downloads the code directly from github
 # - name: Downloading and Extracting the file
 #   ansible.builtin.include_role:
