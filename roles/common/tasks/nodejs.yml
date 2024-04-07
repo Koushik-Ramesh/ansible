@@ -13,7 +13,7 @@
 
 - name: Downloading .pem file
   ansible.builtin.get_url:
-    url: wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+    url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
     dest: /home/{{APPUSER}}/global-bundle.pem
   become_user: "{{APPUSER}}"
   
