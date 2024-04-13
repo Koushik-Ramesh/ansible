@@ -1,1 +1,1 @@
-SECRET: "{{lookup('amazon.aws.aws_secret', 'Robot/secrets', region='us-east-1'}}"
+SECRET: "{{ lookup('amazon.aws.aws_secret', 'Robot/secrets', region='us-east1') }}"
