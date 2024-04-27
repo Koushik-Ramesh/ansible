@@ -23,13 +23,3 @@
     enabled: yes
     daemon_reload: yes
 
-Install the repo
-sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
-
-Configure the repo to yum
-
-sudo yum install filebeat
-
-sudo systemctl enable filebeat
-
-sudo systemctl start filebeat
