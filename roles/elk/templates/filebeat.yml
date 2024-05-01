@@ -4,7 +4,7 @@ filebeat.inputs:
   id: my-filestream-id
   enabled: true
   paths:
-    - "{{ LOGFILE}}"
+    - "{{LOGFILE}}"
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
