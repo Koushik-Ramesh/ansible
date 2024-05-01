@@ -13,7 +13,6 @@ filebeat.config.modules:
 setup.template.settings:
   index.number_of_shards: 1
 setup.kibana:
-  preset: balanced
 output.logstash:
   hosts: ["172.31.36.49:5044"]
 processors:
