@@ -1,4 +1,4 @@
 APPUSER: roboshop
 LOGFILE: /var/log/catalogue.log
-LOGTYPE: raw 
+LOGTYPE: json 
 COMPONENT: catalogue
