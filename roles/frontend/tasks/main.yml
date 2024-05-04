@@ -26,7 +26,7 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restarting Nginx      # Whenever there is a change in proxy file, then this notifies handler task and will call the restart function
 
-- name: Copying the proxy file
+- name: Copying the nginx file
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
