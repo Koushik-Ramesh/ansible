@@ -1,0 +1,12 @@
+# Configures Prometheus 
+- name: Copying the Prometheus config
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus/prometheus.yml
+
+- name: Restarting Prometheus
+  systemd:
+    name: logstash
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
