@@ -6,7 +6,7 @@
 
 - name: Restarting Prometheus
   systemd:
-    name: logstash
+    name: prometheus
     state: restarted
     enabled: yes
     daemon_reload: yes
