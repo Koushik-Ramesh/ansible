@@ -109,3 +109,8 @@ patterns: https://github.com/cjslack/grok-debugger/blob/master/public/patterns/g
 ### Frontend Grok Pattern :
 ```
 %{HTTPDATE:log_timestamp}%{SPACE}%{IP:source_ip}%{SPACE}%{WORD:http_method}%{SPACE}%{PATH:http_path}%{SPACE}%{WORD}/%{NUMBER}%{SPACE}%{NUMBER:http_status:int}%{SPACE}%{NUMBER:bytes_sent}%{SPACE}%{NUMBER:response_time:float}
+
+### SQL for CPU and Memory Utilization
+```
+    ceil(100 - (avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100))
+```
